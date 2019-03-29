@@ -1,0 +1,79 @@
+chun-can_________元（原始版本（复制版本的上一个版本））
+clone____________复（复制版本）
+clone_bare________共（共享版本相当于中转站）
+
+
+————元————修改数据用  git add ... 然后 git commit -m/--message "..." 然后git push ...  （git push）后跟————共————（若不加地址报错）；
+————复————修改数据用  git add ... 然后 git commit -m/--message "..." 然后git push ...  （git push）后跟————共————（若不跟地址默认推送到原始版本里）；
+
+拉取数据在————元/复————上用git pull ... (git pull)后跟地址————共————（元不加报错，复不加默认拉原始版本）
+
+
+git reset HEAD ...   重置暂存区命令，即回退git add命令，HEAD表示版本库当前版本， ... 可选参数，指定被重置的的文件或目录
+git status 查看当前工作区各个文件从处理情况
+
+.gitignore文件里加上不想add的文件名或目录即可忽略掉盖文件或目录
+
+
+一： 创建/切换分支
+git checkout -b ...   创建并切换分支，（...）表示要创建并切换的分支的名字
+git branch 查看当前所有分支，其中用（*）号凸显的就是当前所在分支
+git checkout ... 切换分支，（...）要切换的分支的名字
+git branch ... ... 从现有分支中创建分支，第一个（...）表示要创建的分支的名字，第二个（...）表示从哪个分支中创建分支
+
+
+
+二： 删除分支
+git branch -d ... 删除分支（...）表示被删除的分支的名字
+git branch ... ... 恢复删除分支第一个（...）表示要恢复的分支的名字； 第二个（...）表示想要恢复的分支的散列值
+git reflog         查看散列值
+
+
+
+
+三：合并分支
+git branch         查看有哪些分支
+git checkout ...  （...）是指要切换到以哪个分支为主
+git merge ...      （...）是指被合并的分支
+————当命令行输出
+		Auto-merging foo.txt
+		CONFLICT (content): Merge conflict in foo.txt
+		Automatic merge failed; fix conflicts and then commit the result.
+表示git遇到自身无法解决的冲突，需要手动处理冲突
+
+可以用git status 查看返回的信息，
+————命令行返回
+On branch master
+Your branch is ahead of 'origin/master' by 12 commits.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:————————————————————————————这部分显示的是自动合并的文件
+
+        modified:   bar.html
+
+Unmerged paths:—————————————————————————————————这部分是用户必须手动处理的文件
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   foo.txt
+
+
+
+git pull ......    后报Pull is not possible because you have unmerged files......需要git reset –hard FETCH_HEAD   进行工作区代码重置整理，再然后在git pull ......
+
+
+
+
+
+四：移植/捡取分支
+git rebase ... --onto ... 移植分支（将A分支的东西移植到B分支上，第一个（...）表示B,第二个（...）表示A）_____________是将A是东西覆盖B的东西，B在本地做的修改都没有了
+
+git cherry-pick ...  恢复在摸个版本被误删的内容（...）表示需要恢复的版本的散列值
+git reflog         查看散列值
+
+
+
+
