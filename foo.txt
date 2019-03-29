@@ -82,4 +82,24 @@ git remote --verbose        查看提交到的版本库详细地址
 git remote rm ...           删除给地址取得别名（...）就是别名的名称
 
 
+标签
 git tag ... master -m '...'       给版本做一个标签；第一个（...）是tag名称；第二个（...）是提交注释；
+git push origin ...               提交标签版本；（...）tag名称； 没有指定分支地址在github上Branches(分支)和Tags(标签)平级
+
+
+
+子模块
+git submodule add ... ...         在哪个目录下使用的命令行，就是在这个目录下的项目新建一个第二个（...）为名的目录；第一个（...）是新建的那个项目的地址；意思是吧第一个（...）地址的项目合并到你现在所在的项目；
+git submodule init                初始化子模块
+git submodule updata              更新子模块 
+
+
+git update-index --assume-unchanged ...      忽略某个文件的修改；（...）表示要忽略的文件名，需假文件类型后缀
+git update-index --no-assume-unchanged ...   取消上一步要忽略的文件
+git update-index --really-refresh            重置所有文件状态  
+
+
+
+
+
+
