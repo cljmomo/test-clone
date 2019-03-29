@@ -81,4 +81,5 @@ git remote add ... ...      给push和pull的地址取别名，不用全部打出来，第一个（..
 git remote --verbose        查看提交到的版本库详细地址
 git remote rm ...           删除给地址取得别名（...）就是别名的名称
 
-121212
+
+git tag ... master -m '...'       给版本做一个标签；第一个（...）是tag名称；第二个（...）是提交注释；
